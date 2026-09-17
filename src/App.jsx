@@ -1,17 +1,16 @@
 import { useState } from 'react'
 import './index.css'
-
-import SearchBox from './Component/SearchBox' 
+import Header from './Component/Header'
 import Home from './Pages/Home'
-import Movies from './Pages/Movies'
+
+
 function App() {
   
 
   return (
     <>
-      {/* <SearchBox/>
-      <Home/> */}
-      <Movies/>
+     <Header/>
+      <Home/>
     </>
   )
 }

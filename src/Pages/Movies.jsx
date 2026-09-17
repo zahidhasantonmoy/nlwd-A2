@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import {useEffect} from 'react'
+import MovieCard from '../Component/MovieCard';
+
 export default function Movies() {
     const [Movies,setMovies]=useState([]);
     const [loading,setLoading]=useState(false);
@@ -7,12 +9,14 @@ export default function Movies() {
 
     useEffect(()=>{
             getMovies();
-            console.log(Movies);
+            
         },[]);
 
- try{
+ 
     async function getMovies(){
         setLoading(true);
+
+        try {
         const url ="https://api.tvmaze.com/shows";
         const response =await fetch(url);
         if(!response.ok){
@@ -24,7 +28,7 @@ export default function Movies() {
         
         }
         catch(error){
-            setError(error);
+            setError(error.message);
         }
         finally{
             setLoading(false);
@@ -36,7 +40,12 @@ export default function Movies() {
        
         {loading ? ( <span className="loading loading-spinner text-error"></span>):
         error ? (<span className="loading loading-spinner text-error">{error}</span>): (
-            <p> You have {Movies.length} movies</p>)}
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                {Movies.map((movie)=>(
+                    <MovieCard key={movie.id} movie={movie}/>
+                ))}
+            </div>  
+        )}
             
         </div>
         </>

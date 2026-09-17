@@ -7,12 +7,15 @@ import Movies from './Pages/Movies'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+
+ const [search, setSearch] = useState("");
+
   return (
     <BrowserRouter>
-    <Header/>
+    <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/Movies" element={<Movies/>} />
+        <Route path="/Movies" element={<Movies search={search} />} />
       </Routes>
     </BrowserRouter>
   );

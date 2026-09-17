@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Home() {
     return (
         <div className="hero min-h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
@@ -8,9 +10,9 @@ export default function Home() {
                         Explore and discover your favorite <br/>
                         movies from around the world.   
                     </p>
-                    <a href="/Movies" className="btn text-black bg-white hover:bg-gray-200 btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl border-none shadow-xl">
+                    <Link to="/Movies" className="btn text-black bg-white hover:bg-gray-200 btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl border-none shadow-xl">
                         Explore Now
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import './index.css'
 import Header from './Component/Header'
 import Home from './Pages/Home'
 import Movies from './Pages/Movies'
+import Footer from './Component/Footer'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/Movies" element={<Movies search={search} />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
